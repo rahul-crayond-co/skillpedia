@@ -1,3 +1,4 @@
+// common colors
 $green: #039c00b2;
 $black: #000000d9; //rgba(0, 0, 0, 0.85)
 $thinblack: #000000b2; //rgba(0, 0, 0, 0.70);
@@ -5,6 +6,70 @@ $blue: #0075ff;
 $white: #fff;
 $grey: #00000080;
 $textShadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+
+// common font sizes
+$fontSize1: 48px;
+$fontSize2: 40px;
+$fontSize3: 24px;
+$fontSize4: 20px;
+$fontSize5: 16px;
+$fontSize6: 14px;
+$fontSize7: 12px;
+
+// responsive font sizes
+@mixin calcFontSizes($fontVariant) {
+  // fontSize1
+  @if $fontVariant == "fontSize1" {
+    font-size: $fontSize1;
+    line-height: 64px;
+    @media only screen and (max-width: 768px) {
+      font-size: 40px;
+    }
+    @media only screen and (max-width: 600px) {
+      font-size: 32px;
+      line-height: 50px;
+    }
+    // fontSize2
+  } @else if $fontVariant == "fontSize2" {
+    font-size: $fontSize2;
+    @media only screen and (max-width: 768px) {
+      font-size: 32px;
+    }
+    @media only screen and (max-width: 600px) {
+      font-size: 28px;
+    }
+    // fontSize3
+  } @else if $fontVariant == "fontSize3" {
+    font-size: $fontSize3;
+    @media only screen and (max-width: 768px) {
+      font-size: 20px;
+    }
+    @media only screen and (max-width: 600px) {
+      font-size: 18px;
+    }
+    // fontSize4
+  } @else if $fontVariant == "fontSize4" {
+    font-size: $fontSize4;
+    @media only screen and (max-width: 768px) {
+      font-size: 18px;
+    }
+    @media only screen and (max-width: 600px) {
+      font-size: 16px;
+    }
+    // fontSize5
+  } @else if $fontVariant == "fontSize5" {
+    font-size: $fontSize5;
+    @media only screen and (max-width: 600px) {
+      font-size: 14px;
+    }
+  } @else if $fontVariant == "fontSize6" {
+    font-size: $fontSize6;
+  } @else if $fontVariant == "fontSize7" {
+    font-size: $fontSize7;
+  } @else {
+    font-size: $fontSize7;
+  }
+}
 
 @mixin IconWrapper($size, $bgColor: transparent) {
   width: $size;
@@ -22,6 +87,9 @@ $textShadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   padding: 40px;
   border-radius: 24px;
   background: $bgColor;
+  @media only screen and (max-width: 600px) {
+    padding: 24px;
+  }
 }
 
 @font-face {
@@ -56,7 +124,7 @@ body {
   overflow-x: hidden;
   .heading {
     font-family: "inter_extra_bold";
-    font-size: 40px;
+    @include calcFontSizes("fontSize2");
     line-height: 48px;
     color: $black;
     margin-bottom: 16px;
@@ -67,13 +135,13 @@ body {
     font-family: "inter_regular";
     line-height: 24px;
     text-align: center;
-    font-size: 20px;
+    @include calcFontSizes("fontSize4");
     span {
       font-family: "inter_semi_bold";
     }
   }
   .join-now-btn {
-    font-size: 20px;
+    @include calcFontSizes("fontSize4");
     color: $white;
     font-family: "inter_semi_bold";
     padding: 16px 32px;
@@ -116,6 +184,13 @@ body {
             }
           }
         }
+        .owl-dots {
+          position: absolute;
+          bottom: -50px;
+          .active span {
+            width: 20px;
+          }
+        }
       }
       .course {
         border-radius: 16px;
@@ -151,7 +226,7 @@ body {
             margin-bottom: 0;
           }
           .category {
-            font-size: 14px;
+            @include calcFontSizes("fontSize6");
             color: $white;
             text-shadow: $textShadow;
             line-height: 20px;
@@ -161,13 +236,13 @@ body {
           .course-name {
             margin-block: 8px;
             text-shadow: $textShadow;
-            font-size: 20px;
+            @include calcFontSizes("fontSize4");
             line-height: 24px;
             font-family: "inter_bold";
             color: $white;
           }
           .description {
-            font-size: 14px;
+            @include calcFontSizes("fontSize6");
             text-shadow: $textShadow;
             color: $white;
             line-height: 18px;
@@ -175,6 +250,15 @@ body {
           }
           .arrow-right-icon {
             margin-top: 20px;
+          }
+        }
+        @media screen and (max-width: 425px) {
+          width: 100%;
+        }
+        @media screen and (max-width: 400px) {
+          .img-fluid {
+            height: 100%;
+            object-fit: cover;
           }
         }
       }
@@ -189,10 +273,11 @@ body {
           cursor: pointer;
         }
         .prev-btn {
-          left: -34.5px;
+          left: -20px;
+          display: none;
         }
         .next-btn {
-          right: -34.5px;
+          right: -20px;
         }
       }
     }
@@ -205,6 +290,10 @@ body {
     background: #e9f3ff;
     position: relative;
     overflow: hidden;
+    @media only screen and (max-width: 600px) {
+      padding: 24px;
+      padding-bottom: 0;
+    }
     .banner-wrapper {
       max-width: 900px;
       margin: auto;
@@ -213,15 +302,15 @@ body {
         font-family: "inter_bold";
         text-transform: uppercase;
         text-align: center;
-        font-size: 16px;
+        line-height: 24px;
+        @include calcFontSizes("fontSize5");
       }
       .title {
+        @include calcFontSizes("fontSize1");
         color: $black;
         font-family: "inter_extra_bold";
-        font-size: 48px;
         margin-bottom: 24px;
         text-align: center;
-        line-height: 64px;
       }
       .sub-title {
         color: $thinblack;
@@ -229,7 +318,7 @@ body {
         margin-bottom: 32px;
         text-align: center;
         line-height: 24px;
-        font-size: 20px;
+        @include calcFontSizes("fontSize4");
       }
       img {
         padding-bottom: 1px;
@@ -258,9 +347,14 @@ body {
       position: relative;
       overflow: hidden;
       .wave-icon {
-        position: absolute;
-        left: 18%;
-        top: 10%;
+        display: none;
+        @media screen and (min-width: 1200px) {
+          position: absolute;
+          left: 18%;
+          top: 10%;
+          width: 70%;
+          display: block;
+        }
       }
       .achievement-wrapper {
         padding: 16px;
@@ -275,7 +369,7 @@ body {
         }
         .primary-text {
           font-family: "inter_semi_bold";
-          font-size: 24px;
+          @include calcFontSizes("fontSize3");
           line-height: 32px;
           text-align: center;
           color: $black;
@@ -284,7 +378,7 @@ body {
         .secondary-text {
           text-align: center;
           line-height: 24px;
-          font-size: 16px;
+          @include calcFontSizes("fontSize5");
           font-family: "inter_regular";
           color: $thinblack;
         }
@@ -293,12 +387,18 @@ body {
   }
   .get-started {
     @include Section();
+    @media only screen and (max-width: 768px) {
+      padding: 0px;
+    }
     .steps-wrapper {
       margin-top: 40px;
       justify-content: center;
       .step-wrapper {
         padding: 11px;
         display: flex;
+        @media only screen and (min-width: 1200px) {
+          width: 19.666667%;
+        }
         .step {
           padding: 24px;
           border: 1px solid rgba(0, 0, 0, 0.1);
@@ -307,7 +407,7 @@ body {
           .text {
             font-family: "inter_bold";
             line-height: 16px;
-            font-size: 12px;
+            @include calcFontSizes("fontSize7");
             text-align: center;
             margin-bottom: 12px;
             color: $grey;
@@ -315,7 +415,7 @@ body {
           .title {
             font-family: "inter_semi_bold";
             line-height: 24px;
-            font-size: 20px;
+            @include calcFontSizes("fontSize4");
             color: $black;
             text-align: center;
             margin-bottom: 0;
@@ -337,9 +437,11 @@ body {
       padding: 40px;
       padding-bottom: 24px;
       position: relative;
+      @media only screen and (max-width: 600px) {
+        padding: 24px;
+      }
       .heading {
-        font-size: 48px;
-        line-height: 64px;
+        @include calcFontSizes("fontSize1");
         span {
           color: $blue;
         }
@@ -351,29 +453,50 @@ body {
         position: absolute;
         right: 20px;
         top: 20px;
+        @media only screen and (max-width: 1000px) {
+          top: -30px;
+          right: -30px;
+          svg {
+            width: 90px;
+            height: 70px;
+          }
+        }
       }
       .certificate {
         position: absolute;
         left: 20px;
         bottom: 20px;
+        @media only screen and (max-width: 480px) {
+          display: none;
+        }
       }
     }
     .footer-section-2 {
       padding: 40px;
       padding-top: 24px;
+      @media only screen and (max-width: 600px) {
+        padding: 24px;
+      }
       .contact-details {
         color: #000;
-        font-size: 16px;
+        @include calcFontSizes("fontSize5");
         line-height: 24px;
         font-family: "inter_regular";
         margin-bottom: 0;
+        @media only screen and (max-width: 425px) {
+          span {
+            &:nth-child(2) {
+              display: none;
+            }
+          }
+        }
       }
       .terms-policy {
         gap: 5px;
         h6 {
           margin-bottom: 0;
           color: #00000080;
-          font-size: 16px;
+          @include calcFontSizes("fontSize5");
           line-height: 24px;
           font-family: "inter_medium";
         }
@@ -382,33 +505,6 @@ body {
     hr {
       border-top: 2.7px solid #b4cfee;
       margin-block: 8px;
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  body {
-    .courses {
-      .course-wrapper {
-        .course {
-          width: 100%;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 400px) {
-  body {
-    .courses {
-      .course-wrapper {
-        .course {
-          .img-fluid {
-            height: 100%;
-            object-fit: cover;
-          }
-        }
-      }
     }
   }
 }
