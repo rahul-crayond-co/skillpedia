@@ -171,6 +171,7 @@ body {
   }
   .courses {
     margin-top: 60px;
+    margin-bottom: 80px;
     .course-wrapper {
       margin-top: 20px;
       position: relative;
@@ -199,6 +200,7 @@ body {
         position: relative;
         overflow: hidden;
         .img-overlay {
+          cursor: pointer;
           background: linear-gradient(
             180deg,
             rgba(0, 0, 0, 0) 47.5%,
@@ -214,6 +216,7 @@ body {
           }
         }
         .course-details {
+          cursor: pointer;
           position: absolute;
           bottom: 0;
           transform: translateY(60px);
@@ -499,6 +502,9 @@ body {
           @include calcFontSizes("fontSize5");
           line-height: 24px;
           font-family: "inter_medium";
+          &:nth-child(odd){
+            cursor: pointer;
+          }
         }
       }
     }

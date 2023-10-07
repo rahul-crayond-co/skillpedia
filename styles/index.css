@@ -107,6 +107,7 @@ body .header .signInBtn :focus {
 }
 body .courses {
   margin-top: 60px;
+  margin-bottom: 80px;
 }
 body .courses .course-wrapper {
   margin-top: 20px;
@@ -134,6 +135,7 @@ body .courses .course-wrapper .course {
   overflow: hidden;
 }
 body .courses .course-wrapper .course .img-overlay {
+  cursor: pointer;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 47.5%, rgba(0, 0, 0, 0.63) 100%);
   position: absolute;
   top: 0;
@@ -145,6 +147,7 @@ body .courses .course-wrapper .course .img-overlay:hover + .course-details {
   transform: translateY(0px);
 }
 body .courses .course-wrapper .course .course-details {
+  cursor: pointer;
   position: absolute;
   bottom: 0;
   transform: translateY(60px);
@@ -553,6 +556,9 @@ body .footer .footer-section-2 .terms-policy h6 {
   body .footer .footer-section-2 .terms-policy h6 {
     font-size: 14px;
   }
+}
+body .footer .footer-section-2 .terms-policy h6:nth-child(odd) {
+  cursor: pointer;
 }
 body .footer hr {
   border-top: 2.7px solid #b4cfee;
