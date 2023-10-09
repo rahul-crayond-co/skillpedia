@@ -577,9 +577,9 @@ body .footer .footer-section-2 .contact-details {
     font-size: 14px;
   }
 }
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 420px) {
   body .footer .footer-section-2 .contact-details span:nth-child(2) {
-    display: none;
+    opacity: 0;
   }
 }
 body .footer .footer-section-2 .terms-policy {

@@ -533,10 +533,10 @@ body {
         line-height: 24px;
         font-family: "inter_regular";
         margin-bottom: 0;
-        @media only screen and (max-width: 425px) {
+        @media only screen and (max-width: 420px) {
           span {
             &:nth-child(2) {
-              display: none;
+              opacity: 0;
             }
           }
         }
