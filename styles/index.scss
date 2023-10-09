@@ -82,6 +82,14 @@ $fontSize7: 12px;
   background-color: $bgColor;
 }
 
+@mixin linellipsis($line: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @mixin Section($bgColor: transparent) {
   margin-top: 60px;
   padding: 40px;
@@ -168,6 +176,99 @@ body {
         color: $blue;
       }
     }
+    .join-now-btn {
+      padding: 12px 16px;
+      @include calcFontSizes("fontSize5");
+      font-family: "inter_medium"; 
+      border-radius: 8px;
+      display: none;
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .header-sticky {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    background: #fff;
+    padding: 16px 32px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.35s ease-out;
+    .join-now-btn {
+      display: block;
+    }
+    @media only screen and (max-width: 425px) {
+      flex-direction: column;
+    }
+  }
+
+  .banner {
+    margin-top: 20px;
+    padding: 56px;
+    padding-bottom: 0;
+    border-radius: 16px;
+    background: #e9f3ff;
+    position: relative;
+    overflow: hidden;
+    @media only screen and (max-width: 600px) {
+      padding: 24px;
+      padding-bottom: 0;
+    }
+    .banner-wrapper {
+      max-width: 900px;
+      margin: auto;
+      .title-highlight {
+        color: $green;
+        font-family: "inter_bold";
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 24px;
+        @include calcFontSizes("fontSize5");
+      }
+      .title {
+        @include calcFontSizes("fontSize1");
+        color: $black;
+        font-family: "inter_extra_bold";
+        margin-bottom: 24px;
+        text-align: center;
+      }
+      .sub-title {
+        color: $thinblack;
+        font-family: "inter_regular";
+        margin-bottom: 32px;
+        text-align: center;
+        line-height: 24px;
+        @include calcFontSizes("fontSize4");
+      }
+      img {
+        padding-bottom: 1px;
+      }
+    }
+    .img-overlay {
+      background: linear-gradient(
+        180deg,
+        rgba(208, 229, 255, 0) 0%,
+        rgba(208, 229, 255, 0.25) 43.09%,
+        rgba(208, 229, 255, 0.5) 66.58%,
+        #d0e5ff 97.69%
+      );
+      position: absolute;
+      height: 35%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
   }
   .courses {
     margin-top: 60px;
@@ -240,12 +341,14 @@ body {
             margin-block: 8px;
             text-shadow: $textShadow;
             @include calcFontSizes("fontSize4");
+            @include linellipsis();
             line-height: 24px;
             font-family: "inter_bold";
             color: $white;
           }
           .description {
             @include calcFontSizes("fontSize6");
+            @include linellipsis();
             text-shadow: $textShadow;
             color: $white;
             line-height: 18px;
@@ -285,63 +388,6 @@ body {
       }
     }
   }
-  .banner {
-    margin-top: 20px;
-    padding: 56px;
-    padding-bottom: 0;
-    border-radius: 16px;
-    background: #e9f3ff;
-    position: relative;
-    overflow: hidden;
-    @media only screen and (max-width: 600px) {
-      padding: 24px;
-      padding-bottom: 0;
-    }
-    .banner-wrapper {
-      max-width: 900px;
-      margin: auto;
-      .title-highlight {
-        color: $green;
-        font-family: "inter_bold";
-        text-transform: uppercase;
-        text-align: center;
-        line-height: 24px;
-        @include calcFontSizes("fontSize5");
-      }
-      .title {
-        @include calcFontSizes("fontSize1");
-        color: $black;
-        font-family: "inter_extra_bold";
-        margin-bottom: 24px;
-        text-align: center;
-      }
-      .sub-title {
-        color: $thinblack;
-        font-family: "inter_regular";
-        margin-bottom: 32px;
-        text-align: center;
-        line-height: 24px;
-        @include calcFontSizes("fontSize4");
-      }
-      img {
-        padding-bottom: 1px;
-      }
-    }
-    .img-overlay {
-      background: linear-gradient(
-        180deg,
-        rgba(208, 229, 255, 0) 0%,
-        rgba(208, 229, 255, 0.25) 43.09%,
-        rgba(208, 229, 255, 0.5) 66.58%,
-        #d0e5ff 97.69%
-      );
-      position: absolute;
-      height: 35%;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-  }
   .workshop {
     @include Section(#f5f5f5);
     .workshop-achievements {
@@ -349,16 +395,16 @@ body {
       justify-content: center;
       position: relative;
       overflow: hidden;
-      .wave-icon {
-        display: none;
-        @media screen and (min-width: 1200px) {
-          position: absolute;
-          left: 18%;
-          top: 10%;
-          width: 70%;
-          display: block;
-        }
-      }
+      // .wave-icon {
+      //   display: none;
+      //   @media screen and (min-width: 1200px) {
+      //     position: absolute;
+      //     left: 18%;
+      //     top: 10%;
+      //     width: 70%;
+      //     display: block;
+      //   }
+      // }
       .achievement-wrapper {
         padding: 16px;
         z-index: 1;
@@ -502,7 +548,7 @@ body {
           @include calcFontSizes("fontSize5");
           line-height: 24px;
           font-family: "inter_medium";
-          &:nth-child(odd){
+          &:nth-child(odd) {
             cursor: pointer;
           }
         }

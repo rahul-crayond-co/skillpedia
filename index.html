@@ -23,7 +23,8 @@
   </head>
 
   <body>
-    <div class="header d-flex align-items-center">
+    <!-- header section -->
+    <div class="header d-flex align-items-center flex-wrap">
       <div class="logo d-flex align-items-center">
         <svg
           class="img-fluid"
@@ -43,8 +44,14 @@
         </svg>
         <h4>Skillpedia</h4>
       </div>
-      <button type="button" class="btn p-0 signInBtn">Sign In</button>
+      <div class="d-flex align-items-center gap-3">
+        <button type="button" class="btn p-0 signInBtn">Sign In</button>
+        <button type="button" class="btn btn-primary join-now-btn">
+          Join Now
+        </button>
+      </div>
     </div>
+    <!-- banner section -->
     <div class="banner">
       <div class="banner-wrapper d-flex flex-column align-items-center">
         <h6 class="title-highlight">
@@ -54,8 +61,8 @@
           Transform your healthcare career with industry expert led workshops
         </h1>
         <h5 class="sub-title">
-          Earn certification and stand out by taking your skills to the <br />
-          next level through our workshops
+          Earn certification and stand out by taking your skills to the next
+          level through our workshops
         </h5>
         <button type="button" class="btn btn-primary join-now-btn">
           Join Now
@@ -68,6 +75,7 @@
       </div>
       <div class="img-overlay"></div>
     </div>
+    <!-- courses section -->
     <div class="courses">
       <h1 class="heading">Some of our courses</h1>
       <h3 class="sub-heading">
@@ -160,13 +168,14 @@
         </div>
       </div>
     </div>
+    <!-- workshop section -->
     <div class="workshop">
       <h1 class="heading">Why attend our workshop?</h1>
       <h3 class="sub-heading">
-        Learn from the <span>best</span> in the <span>industry</span>
+        An opportunity to power pack your career through expert learning
       </h3>
       <div class="workshop-achievements row">
-        <div class="wave-icon">
+        <!-- <div class="wave-icon">
           <svg
             class="img-fluid"
             xmlns="http://www.w3.org/2000/svg"
@@ -199,16 +208,18 @@
               </linearGradient>
             </defs>
           </svg>
-        </div>
+        </div> -->
       </div>
     </div>
+    <!-- get-started section -->
     <div class="get-started">
       <h1 class="heading">How to get started?</h1>
       <h3 class="sub-heading">
-        Learn from the <span>best</span> in the <span>industry</span>
+        It's just simple and easy, no hassles to enroll yourselves and learn
       </h3>
       <div class="steps-wrapper row"></div>
     </div>
+    <!-- footer section -->
     <div class="footer">
       <div class="footer-section-1 d-flex flex-column align-items-center">
         <div class="education-cap">
@@ -314,10 +325,10 @@
           <div
             class="terms-policy w-100 d-flex align-items-center justify-content-between justify-content-md-end"
           >
-            <h6>Terms</h6>
+            <!-- <h6>Terms</h6>
             <h6>|</h6>
             <h6>Privacy</h6>
-            <h6>|</h6>
+            <h6>|</h6> -->
             <h6>Contact</h6>
           </div>
         </div>
@@ -334,6 +345,15 @@
     <script src="./plugins/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
+        // scroll to header become fixed
+        $(window).scroll(function () {
+          if ($(window).scrollTop() >= 85) {
+            $(".header").addClass("header-sticky");
+          } else {
+            $(".header").removeClass("header-sticky");
+          }
+        });
+
         // achievements list
         let achievements = [
           {
@@ -355,49 +375,7 @@
             bgColor: "#BAF2BB",
             title: "Learn from the best",
             subTitle:
-              "Secondary text will be display here max Upto two lines maximum",
-          },
-          {
-            icon: `
-            <svg
-              class="img-fluid"
-              xmlns="http://www.w3.org/2000/svg"
-              width="49"
-              height="48"
-              viewBox="0 0 49 48"
-              fill="none"
-            >
-              <path
-                d="M20.3322 5.05859C16.5745 5.05859 13.5001 8.13192 13.5001 11.8906C13.5001 15.1328 16.2202 18.3863 18.7775 21.0586C21.3348 23.7309 23.8829 25.7285 23.8829 25.7285C24.059 25.8666 24.2763 25.9417 24.5001 25.9417C24.7239 25.9417 24.9412 25.8666 25.1173 25.7285C25.1173 25.7285 27.6655 23.7309 30.2228 21.0586C32.7801 18.3863 35.5001 15.1328 35.5001 11.8906C35.5001 8.13213 32.4266 5.05859 28.6681 5.05859C26.7765 5.05859 25.455 5.8843 24.5001 6.67188C23.5452 5.8843 22.2238 5.05859 20.3322 5.05859ZM20.3322 7.05859C21.9375 7.05859 23.1199 7.93341 23.7931 8.60742C23.9806 8.79489 24.235 8.9002 24.5001 8.9002C24.7653 8.9002 25.0196 8.79489 25.2072 8.60742C25.8803 7.93341 27.0627 7.05859 28.6681 7.05859C31.3416 7.05859 33.5001 9.21712 33.5001 11.8906C33.5001 13.8515 31.2202 17.1233 28.7775 19.6758C26.6427 21.9065 25.0062 23.1854 24.5001 23.5918C23.9941 23.1854 22.3576 21.9065 20.2228 19.6758C17.7801 17.1233 15.5001 13.8515 15.5001 11.8906C15.5001 9.21733 17.6598 7.05859 20.3322 7.05859ZM7.67786 10.1836C7.09474 10.1775 6.51693 10.3497 6.02943 10.6797C5.38943 11.1197 4.95044 11.8198 4.82044 12.5898L2.69935 26.25C2.33935 28.58 3.11013 30.9704 4.75013 32.6504L11.5001 39.5293C12.1401 40.1893 12.5001 41.0605 12.5001 41.9805V42.5C12.5001 43.328 13.1721 44 14.0001 44H22.0001C22.8281 44 23.5001 43.328 23.5001 42.5V37.0996C23.5001 33.7696 22.0198 30.6605 19.4298 28.5605L13.4298 23.6895C12.9998 23.3395 12.4505 23.1802 11.9005 23.2402C11.3505 23.3102 10.8501 23.5795 10.5001 24.0195C9.84013 24.8395 9.92029 26.0293 10.6603 26.7793L15.8302 31.9199C16.2202 32.2999 16.2202 32.9401 15.8302 33.3301C15.4502 33.7201 14.8101 33.7201 14.4201 33.3301L9.35755 28.2969C8.41155 27.3569 7.88979 26.024 8.09779 24.707C8.33179 23.218 9.29513 22.0923 10.5001 21.5703L10.4904 13.0293C10.4904 11.6893 9.5699 10.54 8.2599 10.25C8.0674 10.2075 7.87224 10.1856 7.67786 10.1836ZM41.3224 10.1836C41.128 10.1856 40.9329 10.2075 40.7404 10.25C39.4304 10.54 38.5099 11.6893 38.5099 13.0293L38.5001 21.5703C39.7041 22.0923 40.6675 23.218 40.9025 24.707C41.1105 26.024 40.5887 27.3569 39.6427 28.2969L34.5802 33.3301C34.1902 33.7201 33.5501 33.7201 33.1701 33.3301C32.7801 32.9401 32.7801 32.2999 33.1701 31.9199L38.34 26.7793C39.08 26.0293 39.1601 24.8395 38.5001 24.0195C38.1501 23.5795 37.6497 23.3102 37.0997 23.2402C36.5497 23.1802 36.0004 23.3395 35.5704 23.6895L29.5704 28.5605C26.9804 30.6605 25.5001 33.7696 25.5001 37.0996V42.5C25.5001 43.328 26.1721 44 27.0001 44H35.0001C35.8281 44 36.5001 43.328 36.5001 42.5V41.9805C36.5001 41.0605 36.8601 40.1893 37.5001 39.5293L44.2501 32.6504C45.8901 30.9704 46.6609 28.58 46.3009 26.25L44.1798 12.5898C44.0498 11.8198 43.6108 11.1197 42.9708 10.6797C42.4833 10.3497 41.9055 10.1775 41.3224 10.1836Z"
-                fill="#8A7D36"
-              />
-            </svg>
-          `,
-            bgColor: "#FFEE93",
-            title: "Hands-on experience",
-            subTitle:
-              "Secondary text will be display here max Upto two lines maximum",
-          },
-          {
-            icon: `
-            <svg
-              class="img-fluid"
-              xmlns="http://www.w3.org/2000/svg"
-              width="49"
-              height="48"
-              viewBox="0 0 49 48"
-              fill="none"
-            >
-              <path
-                d="M8.6665 8C6.1855 8 4.1665 10.019 4.1665 12.5V35.5C4.1665 37.981 6.1855 40 8.6665 40H20.1665V43.5C20.1665 44.035 20.4506 44.5289 20.9126 44.7969C21.3756 45.0659 21.9466 45.0687 22.4106 44.8027L24.1665 43.7988L25.9224 44.8027C26.1524 44.9347 26.4095 45 26.6665 45C26.9265 45 27.1874 44.9329 27.4204 44.7969C27.8824 44.5289 28.1665 44.035 28.1665 43.5V40H39.6665C42.1475 40 44.1665 37.981 44.1665 35.5V12.5C44.1665 10.019 42.1475 8 39.6665 8H8.6665ZM12.6665 15H35.6665C36.4955 15 37.1665 15.671 37.1665 16.5C37.1665 17.329 36.4955 18 35.6665 18H12.6665C11.8375 18 11.1665 17.329 11.1665 16.5C11.1665 15.671 11.8375 15 12.6665 15ZM14.6665 21H33.6665C34.4955 21 35.1665 21.671 35.1665 22.5C35.1665 23.329 34.4955 24 33.6665 24H14.6665C13.8375 24 13.1665 23.329 13.1665 22.5C13.1665 21.671 13.8375 21 14.6665 21ZM24.1665 28C26.9275 28 29.1665 30.239 29.1665 33C29.1665 35.761 26.9275 38 24.1665 38C21.4055 38 19.1665 35.761 19.1665 33C19.1665 30.239 21.4055 28 24.1665 28Z"
-                fill="#404787"
-              />
-            </svg>
-          `,
-            bgColor: "#97A1FB",
-            title: "Certification",
-            subTitle:
-              "Secondary text will be display here max Upto two lines maximum",
+              "Our workshops led by industry veterans, offer invaluable insights not found in textbooks for enriching your knowledge",
           },
           {
             icon: `
@@ -430,7 +408,29 @@
             bgColor: "#97D2FB",
             title: "Flexible learning",
             subTitle:
-              "Secondary text will be display here max Upto two lines maximum",
+              "Choose between interactive live sessions or self-paced recorded ones, accommodating diverse schedules",
+          },
+          {
+            icon: `
+            <svg
+              class="img-fluid"
+              xmlns="http://www.w3.org/2000/svg"
+              width="49"
+              height="48"
+              viewBox="0 0 49 48"
+              fill="none"
+            >
+              <path
+                d="M20.3322 5.05859C16.5745 5.05859 13.5001 8.13192 13.5001 11.8906C13.5001 15.1328 16.2202 18.3863 18.7775 21.0586C21.3348 23.7309 23.8829 25.7285 23.8829 25.7285C24.059 25.8666 24.2763 25.9417 24.5001 25.9417C24.7239 25.9417 24.9412 25.8666 25.1173 25.7285C25.1173 25.7285 27.6655 23.7309 30.2228 21.0586C32.7801 18.3863 35.5001 15.1328 35.5001 11.8906C35.5001 8.13213 32.4266 5.05859 28.6681 5.05859C26.7765 5.05859 25.455 5.8843 24.5001 6.67188C23.5452 5.8843 22.2238 5.05859 20.3322 5.05859ZM20.3322 7.05859C21.9375 7.05859 23.1199 7.93341 23.7931 8.60742C23.9806 8.79489 24.235 8.9002 24.5001 8.9002C24.7653 8.9002 25.0196 8.79489 25.2072 8.60742C25.8803 7.93341 27.0627 7.05859 28.6681 7.05859C31.3416 7.05859 33.5001 9.21712 33.5001 11.8906C33.5001 13.8515 31.2202 17.1233 28.7775 19.6758C26.6427 21.9065 25.0062 23.1854 24.5001 23.5918C23.9941 23.1854 22.3576 21.9065 20.2228 19.6758C17.7801 17.1233 15.5001 13.8515 15.5001 11.8906C15.5001 9.21733 17.6598 7.05859 20.3322 7.05859ZM7.67786 10.1836C7.09474 10.1775 6.51693 10.3497 6.02943 10.6797C5.38943 11.1197 4.95044 11.8198 4.82044 12.5898L2.69935 26.25C2.33935 28.58 3.11013 30.9704 4.75013 32.6504L11.5001 39.5293C12.1401 40.1893 12.5001 41.0605 12.5001 41.9805V42.5C12.5001 43.328 13.1721 44 14.0001 44H22.0001C22.8281 44 23.5001 43.328 23.5001 42.5V37.0996C23.5001 33.7696 22.0198 30.6605 19.4298 28.5605L13.4298 23.6895C12.9998 23.3395 12.4505 23.1802 11.9005 23.2402C11.3505 23.3102 10.8501 23.5795 10.5001 24.0195C9.84013 24.8395 9.92029 26.0293 10.6603 26.7793L15.8302 31.9199C16.2202 32.2999 16.2202 32.9401 15.8302 33.3301C15.4502 33.7201 14.8101 33.7201 14.4201 33.3301L9.35755 28.2969C8.41155 27.3569 7.88979 26.024 8.09779 24.707C8.33179 23.218 9.29513 22.0923 10.5001 21.5703L10.4904 13.0293C10.4904 11.6893 9.5699 10.54 8.2599 10.25C8.0674 10.2075 7.87224 10.1856 7.67786 10.1836ZM41.3224 10.1836C41.128 10.1856 40.9329 10.2075 40.7404 10.25C39.4304 10.54 38.5099 11.6893 38.5099 13.0293L38.5001 21.5703C39.7041 22.0923 40.6675 23.218 40.9025 24.707C41.1105 26.024 40.5887 27.3569 39.6427 28.2969L34.5802 33.3301C34.1902 33.7201 33.5501 33.7201 33.1701 33.3301C32.7801 32.9401 32.7801 32.2999 33.1701 31.9199L38.34 26.7793C39.08 26.0293 39.1601 24.8395 38.5001 24.0195C38.1501 23.5795 37.6497 23.3102 37.0997 23.2402C36.5497 23.1802 36.0004 23.3395 35.5704 23.6895L29.5704 28.5605C26.9804 30.6605 25.5001 33.7696 25.5001 37.0996V42.5C25.5001 43.328 26.1721 44 27.0001 44H35.0001C35.8281 44 36.5001 43.328 36.5001 42.5V41.9805C36.5001 41.0605 36.8601 40.1893 37.5001 39.5293L44.2501 32.6504C45.8901 30.9704 46.6609 28.58 46.3009 26.25L44.1798 12.5898C44.0498 11.8198 43.6108 11.1197 42.9708 10.6797C42.4833 10.3497 41.9055 10.1775 41.3224 10.1836Z"
+                fill="#8A7D36"
+              />
+            </svg>
+          `,
+            bgColor: "#FFEE93",
+
+            title: "Hands-on experience",
+            subTitle:
+              "Dive into real-world scenarios with hands-on projects, making learning engaging and practical",
           },
           {
             icon: `
@@ -451,7 +451,28 @@
             bgColor: "#FBA397",
             title: "Networking opportunities",
             subTitle:
-              "Secondary text will be display here max Upto two lines maximum",
+              "Earn industry-recognized certifications, showcasing your commitment to professional growth on your resume",
+          },
+          {
+            icon: `
+            <svg
+              class="img-fluid"
+              xmlns="http://www.w3.org/2000/svg"
+              width="49"
+              height="48"
+              viewBox="0 0 49 48"
+              fill="none"
+            >
+              <path
+                d="M8.6665 8C6.1855 8 4.1665 10.019 4.1665 12.5V35.5C4.1665 37.981 6.1855 40 8.6665 40H20.1665V43.5C20.1665 44.035 20.4506 44.5289 20.9126 44.7969C21.3756 45.0659 21.9466 45.0687 22.4106 44.8027L24.1665 43.7988L25.9224 44.8027C26.1524 44.9347 26.4095 45 26.6665 45C26.9265 45 27.1874 44.9329 27.4204 44.7969C27.8824 44.5289 28.1665 44.035 28.1665 43.5V40H39.6665C42.1475 40 44.1665 37.981 44.1665 35.5V12.5C44.1665 10.019 42.1475 8 39.6665 8H8.6665ZM12.6665 15H35.6665C36.4955 15 37.1665 15.671 37.1665 16.5C37.1665 17.329 36.4955 18 35.6665 18H12.6665C11.8375 18 11.1665 17.329 11.1665 16.5C11.1665 15.671 11.8375 15 12.6665 15ZM14.6665 21H33.6665C34.4955 21 35.1665 21.671 35.1665 22.5C35.1665 23.329 34.4955 24 33.6665 24H14.6665C13.8375 24 13.1665 23.329 13.1665 22.5C13.1665 21.671 13.8375 21 14.6665 21ZM24.1665 28C26.9275 28 29.1665 30.239 29.1665 33C29.1665 35.761 26.9275 38 24.1665 38C21.4055 38 19.1665 35.761 19.1665 33C19.1665 30.239 21.4055 28 24.1665 28Z"
+                fill="#404787"
+              />
+            </svg>
+          `,
+            bgColor: "#97A1FB",
+            title: "Certification",
+            subTitle:
+              "Connect with like-minded professionals across, fostering collaborations and unlocking career opportunities",
           },
         ];
         let mappedAchievements = achievements.map(
@@ -488,7 +509,7 @@
                 />
               </svg>
             `,
-            text: "Choose your workshop",
+            text: "Choose workshop",
             borderColor: "#A0DDA1",
           },
           {
@@ -565,7 +586,7 @@
                 />
               </svg>
             `,
-            text: "Get your certified",
+            text: "Get certified",
             borderColor: "#BAF2BB",
           },
         ];
@@ -619,18 +640,18 @@
             name: "Course name display here max upto 2 lines",
             desc: "About the course description will be display here max of two line",
           },
-          // {
-          //   imgPath: "doctor-examine.png",
-          //   category: "Course category",
-          //   name: "Course name display here max upto 2 lines",
-          //   desc: "About the course description will be display here max of two line",
-          // },
-          // {
-          //   imgPath: "doctor-examine.png",
-          //   category: "Course category",
-          //   name: "Course name display here max upto 2 lines",
-          //   desc: "About the course description will be display here max of two line",
-          // },
+          {
+            imgPath: "doctor-examine.png",
+            category: "Course category",
+            name: "Course name display here max upto 2 lines",
+            desc: "About the course description will be display here max of two line",
+          },
+          {
+            imgPath: "doctor-examine.png",
+            category: "Course category",
+            name: "Course name display here max upto 2 lines",
+            desc: "About the course description will be display here max of two line",
+          },
         ];
         let mappedCourselist = courselist.map(
           (course) => `
