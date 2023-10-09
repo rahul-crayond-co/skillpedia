@@ -82,7 +82,7 @@
         Learn from the <span>best</span> in the <span>industry</span>
       </h3>
       <div class="course-wrapper">
-        <div class="owl-carousel owl-theme"></div>
+        <div class="owl-carousel owl-theme owl-loaded"></div>
         <div class="navigation-btns">
           <div class="prev-btn arrow-btn">
             <svg
@@ -689,8 +689,8 @@
             </div>
           </div>`
         );
-        $(".owl-carousel").html(mappedCourselist);
-        var owl = $(".owl-carousel").owlCarousel({
+        var owl = $(".owl-carousel").html(mappedCourselist);
+        owl.owlCarousel({
           margin: 20,
           autoWidth: true,
           dots: true,
@@ -710,6 +710,24 @@
               items: 4,
             },
           },
+          onInitialized: (event) => {
+            let windowWidth = window.outerWidth;
+            let itemsTotalWidth = event.relatedTarget._widths.reduce(
+              (t, i) => t + i,
+              0
+            );
+            let isDisabledClassApplied = $(".owl-dots").hasClass("disabled");
+            if (itemsTotalWidth > windowWidth) {
+              $(".next-btn").show();
+              if (isDisabledClassApplied) {
+                $(".owl-dots").removeClass("disabled");
+              }
+            } else {
+              if (!isDisabledClassApplied) {
+                $(".owl-dots").addClass("disabled");
+              }
+            }
+          },
         });
         // Go to the next item
         $(".next-btn").click(function (event) {
@@ -720,6 +738,7 @@
           owl.trigger("prev.owl.carousel");
         });
         owl.on("changed.owl.carousel", function (event) {
+          $(".owl-dots").removeClass("disabled");
           let { index, count } = event.page;
           // prev btn config
           if (index === 0) {
