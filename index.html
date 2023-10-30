@@ -33,6 +33,11 @@
           alt="Logo"
           class="img-fluid"
         />
+        <img
+          src="./assests/images/Mobile_logo.png"
+          alt="Logo"
+          class="img-fluid"
+        />
       </div>
       <!-- <div class="logo d-flex align-items-center">
         <svg
@@ -358,23 +363,10 @@
     <script type="text/javascript">
       $(document).ready(function () {
         // scroll to header become fixed
-        const docWidth = $(document).width();
         $(window).scroll(function () {
           if ($(window).scrollTop() >= 85) {
-            if (docWidth <= 550) {
-              $(".header .logo img").attr(
-                "src",
-                "./assests/images/Mobile_logo.png"
-              );
-            }
             $(".header").addClass("header-sticky");
           } else {
-            if (docWidth <= 550) {
-              $(".header .logo img").attr(
-                "src",
-                "./assests/images/Skillspaedia_Logo.png"
-              );
-            }
             $(".header").removeClass("header-sticky");
           }
         });

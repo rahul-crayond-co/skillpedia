@@ -162,9 +162,15 @@ body {
       flex: 1;
       gap: 12px;
       img {
-        width: 300px;
-        @media only screen and (max-width: 430px) {
-          width: 180px;
+        &:first-child {
+          width: 300px;
+          @media only screen and (max-width: 430px) {
+            width: 180px;
+          }
+        }
+        &:last-child {
+          display: none;
+          width: 50px;
         }
       }
       h4 {
@@ -217,7 +223,12 @@ body {
     // changes in max-width should require to update the width in $(window).scroll()
     @media only screen and (max-width: 551px) {
       img {
-        width: 50px !important;
+        &:first-child {
+          display: none;
+        }
+        &:last-child {
+          display: block !important;
+        }
       }
     }
   }
