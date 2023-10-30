@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Skillspaedia</title>
+    <!-- Fav Icon -->
+    <link rel="icon" type="image/x-icon" href="./assests/images/favicon.ico" />
     <!-- bootstrap -->
     <link
       href="./plugins/bootstrap-5.3.2-dist/css/bootstrap.min.css"
@@ -25,7 +27,14 @@
   <body>
     <!-- header section -->
     <div class="header d-flex align-items-center flex-wrap">
-      <div class="logo d-flex align-items-center">
+      <div class="logo">
+        <img
+          src="./assests/images/Skillspaedia_Logo.png"
+          alt="Logo"
+          class="img-fluid"
+        />
+      </div>
+      <!-- <div class="logo d-flex align-items-center">
         <svg
           class="img-fluid"
           width="33"
@@ -43,7 +52,7 @@
           />
         </svg>
         <h4>Skillpedia</h4>
-      </div>
+      </div> -->
       <div class="d-flex align-items-center gap-3">
         <button type="button" class="btn p-0 signInBtn">Sign In</button>
         <button type="button" class="btn btn-primary join-now-btn">
@@ -55,7 +64,7 @@
     <div class="banner">
       <div class="banner-wrapper d-flex flex-column align-items-center">
         <h6 class="title-highlight">
-          Best in class workshops for physicians, nursing & laboratorian
+          Best in class workshops for healthcare professionals
         </h6>
         <h1 class="title">
           Transform your healthcare career with industry expert led workshops
@@ -309,16 +318,16 @@
         </div>
       </div>
       <hr />
-      <div class="footer-section-2 row ">
+      <div class="footer-section-2 row">
         <div
           class="col-12 col-sm-12 d-flex flex-column flex-sm-row align-items-center justify-content-between flex-wrap gap-2"
         >
           <h6
             class="contact-details d-flex align-items-center gap-2 flex-wrap justify-content-center"
           >
-            <span>Contactmailid@mail.com</span>
-            <span>|</span>
-            <span>+91 9999 999 999</span>
+            <span>support@skillspaedia.com</span>
+            <!-- <span>|</span>
+            <span>+91 9999 999 999</span> -->
           </h6>
           <div class="terms-policy">
             <h6>Contact</h6>
@@ -349,11 +358,24 @@
     <script type="text/javascript">
       $(document).ready(function () {
         // scroll to header become fixed
+        const docWidth = $(document).width();
         $(window).scroll(function () {
           if ($(window).scrollTop() >= 85) {
             $(".header").addClass("header-sticky");
+            if (docWidth <= 550) {
+              $(".header .logo img").attr(
+                "src",
+                "./assests/images/Mobile_logo.png"
+              );
+            }
           } else {
             $(".header").removeClass("header-sticky");
+            if (docWidth <= 550) {
+              $(".header .logo img").attr(
+                "src",
+                "./assests/images/Skillspaedia_Logo.png"
+              );
+            }
           }
         });
 

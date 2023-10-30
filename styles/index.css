@@ -91,6 +91,14 @@ body .header .logo {
   flex: 1;
   gap: 12px;
 }
+body .header .logo img {
+  width: 300px;
+}
+@media only screen and (max-width: 430px) {
+  body .header .logo img {
+    width: 180px;
+  }
+}
 body .header .logo h4 {
   margin-bottom: 0px;
   font-family: "inter_semi_bold";
@@ -141,9 +149,9 @@ body .header-sticky {
 body .header-sticky .join-now-btn {
   display: block;
 }
-@media only screen and (max-width: 425px) {
-  body .header-sticky {
-    flex-direction: column;
+@media only screen and (max-width: 551px) {
+  body .header-sticky img {
+    width: 50px !important;
   }
 }
 body .banner {
