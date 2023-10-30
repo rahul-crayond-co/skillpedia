@@ -361,21 +361,21 @@
         const docWidth = $(document).width();
         $(window).scroll(function () {
           if ($(window).scrollTop() >= 85) {
-            $(".header").addClass("header-sticky");
             if (docWidth <= 550) {
               $(".header .logo img").attr(
                 "src",
                 "./assests/images/Mobile_logo.png"
               );
             }
+            $(".header").addClass("header-sticky");
           } else {
-            $(".header").removeClass("header-sticky");
             if (docWidth <= 550) {
               $(".header .logo img").attr(
                 "src",
                 "./assests/images/Skillspaedia_Logo.png"
               );
             }
+            $(".header").removeClass("header-sticky");
           }
         });
 
