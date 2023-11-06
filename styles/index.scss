@@ -316,26 +316,31 @@ body {
       }
       .course {
         border-radius: 16px;
-        height: 400px;
+        background-color: #d0e5ff;
+        height: 280px;
         width: 314px;
         position: relative;
         overflow: hidden;
-        .img-overlay {
-          cursor: pointer;
-          background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0) 47.5%,
-            rgba(0, 0, 0, 0.63) 100%
-          );
-          position: absolute;
-          top: 0;
-          right: 0;
-          left: 0;
-          bottom: 0;
-          &:hover + .course-details {
-            transform: translateY(0px);
-          }
+        cursor: pointer;
+        &:hover .course-details {
+          transform: translateY(0px);
         }
+        // .img-overlay {
+        //   cursor: pointer;
+        //   background: linear-gradient(
+        //     180deg,
+        //     rgba(0, 0, 0, 0) 47.5%,
+        //     rgba(0, 0, 0, 0.63) 100%
+        //   );
+        //   position: absolute;
+        //   top: 0;
+        //   right: 0;
+        //   left: 0;
+        //   bottom: 0;
+        //   &:hover + .course-details {
+        //     transform: translateY(0px);
+        //   }
+        // }
         .course-details {
           cursor: pointer;
           position: absolute;
@@ -343,15 +348,15 @@ body {
           transform: translateY(60px);
           padding: 20px;
           transition: 0.5s all ease-in-out;
-          &:hover {
-            transform: translateY(0px);
-          }
+          // &:hover {
+          //   transform: translateY(0px);
+          // }
           .h6 {
             margin-bottom: 0;
           }
           .category {
             @include calcFontSizes("fontSize6");
-            color: $white;
+            color: $black;
             text-shadow: $textShadow;
             line-height: 20px;
             text-transform: uppercase;
@@ -364,14 +369,14 @@ body {
             @include linellipsis();
             line-height: 24px;
             font-family: "inter_bold";
-            color: $white;
+            color: $black;
           }
           .description {
             @include calcFontSizes("fontSize6");
-            @include linellipsis();
+            // @include linellipsis();
             text-shadow: $textShadow;
-            color: $white;
-            line-height: 18px;
+            color: $black;
+            line-height: 20px;
             font-family: "inter_regular";
           }
           .arrow-right-icon {
