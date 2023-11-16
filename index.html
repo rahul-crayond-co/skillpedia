@@ -59,10 +59,15 @@
         <h4>Skillpedia</h4>
       </div> -->
       <div class="d-flex align-items-center gap-3">
-        <button type="button" class="btn p-0 signInBtn">Sign In</button>
-        <button type="button" class="btn btn-primary join-now-btn">
+        <a href="https://crayond.learnyst.com/" class="btn p-0 signInBtn"
+          >Sign In</a
+        >
+        <a
+          href="https://crayond.learnyst.com/learn/account/signup"
+          class="btn btn-primary join-now-btn"
+        >
           Join Now
-        </button>
+        </a>
       </div>
     </div>
     <!-- banner section -->
@@ -78,9 +83,12 @@
           Earn certification and stand out by taking your skills to the next
           level through our workshops
         </h5>
-        <button type="button" class="btn btn-primary join-now-btn">
+        <a
+          href="https://crayond.learnyst.com/learn/account/signup"
+          class="btn btn-primary join-now-btn"
+        >
           Join Now
-        </button>
+        </a>
         <img
           src="./assests/images/industry-expert.png"
           alt="industry-experts"
@@ -285,9 +293,12 @@
         <h4 class="sub-heading">
           Advance your healthcare career through the best industry leaders
         </h4>
-        <button type="button" class="btn btn-primary join-now-btn">
+        <a
+          href="https://crayond.learnyst.com/learn/account/signup"
+          class="btn btn-primary join-now-btn"
+        >
           Join Now
-        </button>
+        </a>
         <div class="certificate">
           <svg
             class="img-fluid"
@@ -332,8 +343,12 @@
             <!-- <span>|</span>
             <span>+91 9999 999 999</span> -->
           </h6>
-          <div class="terms-policy">
-            <h6>Contact</h6>
+          <div
+            class="terms-policy"
+            data-bs-toggle="modal"
+            data-bs-target="#privacyModal"
+          >
+            <h6>Privacy</h6>
           </div>
         </div>
         <!-- <div class="col-12 col-sm-12 col-md-5 col-lg-6">
@@ -347,6 +362,45 @@
             <h6>Contact</h6>
           </div>
         </div> -->
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="privacyModal"
+      tabindex="-1"
+      aria-labelledby="privacyModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title heading" id="privacyModalLabel">Privacy</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-0 pb-4">
+            <iframe
+              src="https://docs.google.com/document/d/e/2PACX-1vSZAh8JrZukayPE8WSv4QDxhFMj6uJOX_k1nXmZ39rAqm6okOqh4k3at7SgCrfFmG2wNkdCTUOCP-LT/pub?embedded=true"
+              width="100%"
+              height="100%"
+            ></iframe>
+          </div>
+          <!-- <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> -->
+        </div>
       </div>
     </div>
     <!-- Jquery -->
@@ -626,43 +680,43 @@
         // owl carousel
         let courselist = [
           {
-            // imgPath: "doctor-examine.png",
+            imgPath: "ECG_BnB_(Box_1).png",
             category: "Medical",
             name: "ECG BnB",
             desc: "Electrocardiogram basics and beyond for MBBS interns and doctors",
           },
           {
-            // imgPath: "doctor-examine.png",
+            imgPath: "ECG_BnB_(Box_2).png",
             category: "Medical",
             name: "ECG BnB",
             desc: "Electrocardiogram basics and beyond for paramedical graduates",
           },
           {
-            // imgPath: "doctor-examine.png",
+            imgPath: "Operation_Theatre_Ethics_(Box_3).png",
             category: "Nursing",
             name: "Operation theatre etiquettes",
             desc: "Staff nurse skill development training  and certification program focusing on operation theatre etiquettes",
           },
           {
-            // imgPath: "doctor-examine.png",
+            imgPath: "Physio_Basic_Course_(Box_4).png",
             category: "Physiotherapist",
             name: "Physio basic course",
             desc: "Skill development training workshop and certification program for physiotherapists focusing on career kickstart",
           },
           {
-            // imgPath: "doctor-examine.png",
+            imgPath: "POP_Cours_(Box_5).png",
             category: "Healthcare Technician",
             name: "POP course",
             desc: "Plaster of Paris application skill development training workshop and certification program for plaster technicians",
           },
           {
-            // imgPath: "doctor-examine.png",
+            imgPath: "Physio_Advance_Course_(Box_6).png",
             category: "Physiotherapist",
             name: "Physio advanced course",
             desc: "Skill development training workshop and certification program for physiotherapists focusing on career upgrade - Hybrid",
           },
           {
-            // imgPath: "doctor-examine.png",
+            imgPath: "Physio_Advanced_Course_(Box_7).png",
             category: "Physiotherapist",
             name: "Physio interns course",
             desc: "Skill development training workshop and career guidance program for physiotherapists pursuing internship",
@@ -671,6 +725,12 @@
         let mappedCourselist = courselist.map(
           (course) => `
           <div class="course">
+            <img
+              src="./assests/images/${course.imgPath}"
+              class="img-fluid"
+              alt="doctor-examine"
+            />
+            <div class="img-overlay"></div>
             <div class="course-details">
               <h6 class="category">${course.category}</h6>
               <h5 class="course-name">
@@ -688,10 +748,10 @@
                   viewBox="0 0 40 40"
                   fill="none"
                 >
-                  <rect width="40" height="40" rx="20" fill="#ffffff" />
+                  <rect width="40" height="40" rx="20" fill="#0075FF" />
                   <path
                     d="M25.1883 14.293C25.0105 14.0975 24.7783 14 24.5455 14C24.3128 14 24.0805 14.0975 23.9028 14.293C23.5478 14.6835 23.5478 15.3165 23.9028 15.707L26.8965 19.0001L10.9091 19.0001C10.4073 19.0001 10 19.4481 10 20.0001C10 20.5521 10.4073 21.0001 10.9091 21.0001L26.8965 21.0001L23.9028 24.2931C23.5478 24.6836 23.5478 25.3166 23.9028 25.7071C24.2578 26.0976 24.8333 26.0976 25.1883 25.7071L29.7337 20.7071C30.0888 20.3166 30.0887 19.6836 29.7337 19.2931L25.1883 14.293Z"
-                    fill="#0075FF"
+                    fill="white"
                   />
                 </svg>
               </div>
